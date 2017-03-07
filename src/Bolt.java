@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +22,12 @@ public class Bolt {
         this.tejpult = tejpult;
     }
 
+    public Bolt(String nev, String cim, String tulajdonos) {
+        this.nev = nev;
+        this.cim = cim;
+        this.tulajdonos = tulajdonos;
+    }
+
     public String getNev() { return this.nev; }
 
     public String getCim() { return this.cim; }
@@ -42,5 +49,12 @@ public class Bolt {
         return m;
     }
 
-
+    public void feltoltTej(Tej m) {
+        Tej[] ujTejPult = new Tej[tejpult.length + 1];
+        for (int i=0; i<tejpult.length; i++) {
+            ujTejPult[i] = tejpult[i];
+        ujTejPult[tejpult.length + 1] = m;
+        tejpult = ujTejPult;
+        }
+    }
 }
