@@ -1,8 +1,5 @@
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Created by ugyan on 2017.03.07..
@@ -12,9 +9,9 @@ public class Bolt {
     private String nev;
     private String cim;
     private String tulajdonos;
-    private Vector tejpult;
+    private Hashtable<Long, Tej> tejpult;
 
-    public Bolt(String nev, String cim, String tulajdonos, Vector tejpult) {
+    public Bolt(String nev, String cim, String tulajdonos, Hashtable tejpult) {
         this.nev = nev;
         this.cim = cim;
         this.tulajdonos = tulajdonos;
@@ -41,12 +38,11 @@ public class Bolt {
         }
     }
 
-    public Tej vasarolTej(Tej m) {
-        tejpult.remove(m);
-        return m;
+    public Tej vasarolTej(long vonalkod) {
+        return tejpult.remove(tejpult.get(vonalkod));
     }
 
     public void feltoltTej(Tej m) {
-        tejpult.add(m);
+        tejpult.put(m.getVonalkod(), m);
     }
 }
