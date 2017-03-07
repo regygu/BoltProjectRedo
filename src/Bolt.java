@@ -2,6 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by ugyan on 2017.03.07..
@@ -11,11 +12,9 @@ public class Bolt {
     private String nev;
     private String cim;
     private String tulajdonos;
-    private Tej[] tejpult;
-    private int flag;
+    private Vector tejpult;
 
-
-    public Bolt(String nev, String cim, String tulajdonos, Tej[] tejpult) {
+    public Bolt(String nev, String cim, String tulajdonos, Vector tejpult) {
         this.nev = nev;
         this.cim = cim;
         this.tulajdonos = tulajdonos;
@@ -35,7 +34,7 @@ public class Bolt {
     public String getTulajdonos() { return this.tulajdonos; }
 
     public boolean vanMegTej() {
-        if (tejpult.length == 0) {
+        if (tejpult.size() == 0) {
             return false;
         } else {
             return true;
@@ -43,18 +42,11 @@ public class Bolt {
     }
 
     public Tej vasarolTej(Tej m) {
-        List<Tej> tejList = new ArrayList<Tej>(Arrays.asList(tejpult));
-        tejList.remove(m);
-        this.tejpult = tejList.toArray(tejpult);
+        tejpult.remove(m);
         return m;
     }
 
     public void feltoltTej(Tej m) {
-        Tej[] ujTejPult = new Tej[tejpult.length + 1];
-        for (int i=0; i<tejpult.length; i++) {
-            ujTejPult[i] = tejpult[i];
-        ujTejPult[tejpult.length + 1] = m;
-        tejpult = ujTejPult;
-        }
+        tejpult.add(m);
     }
 }
