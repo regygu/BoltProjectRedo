@@ -5,11 +5,11 @@ import java.util.Date;
  */
 public class Tej {
 
-    private long vonalkod;
-    private int urtartalom;
-    private String gyarto;
-    private Date szavatossag;
-    private double zsirtartalom;
+    protected long vonalkod;
+    protected int urtartalom;
+    protected String gyarto;
+    protected Date szavatossag;
+    protected double zsirtartalom;
     final int LITER = 4;
     final int FELLITER = 2;
     final int POHAR = 1;
