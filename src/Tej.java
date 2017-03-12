@@ -3,7 +3,7 @@ import java.util.Date;
 /**
  * Created by ugyan on 2017.03.07..
  */
-public class Tej {
+public abstract class Tej {
 
     protected long vonalkod;
     protected int urtartalom;
